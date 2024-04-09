@@ -1,0 +1,11 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<!--template 엔진 없이 그냥 html만 실행시키면 껍데기는 화면에 나옴 hello empty 나옴-->
+<p th:text="'안녕하세요. ' + ${name}" >hello empty</p>
+</body>
+</html>
