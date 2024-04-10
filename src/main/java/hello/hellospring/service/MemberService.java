@@ -10,9 +10,15 @@ import java.util.List;
 import java.util.Optional;
 
 public class MemberService {
-    private final MemberRepository memberRepository = new MemoryMemberRepository();
+    private final MemberRepository memberRepository;
 
-//    회원가입
+    // constructor생성: 외부에서 new MemberService()해서 다른 인스턴스 만들 필요없이
+    // 외부에서 memberRepository를 넣어주도록
+    public MemberService(MemberRepository memberRepository) {
+        this.memberRepository = memberRepository;
+    }
+
+    //    회원가입
     public Long join(Member member) {
         // ifPresent: ~에 값이 있으면(Optional이기 때문에 사용할 수 있음)
         validateDuplicateMember(member); // 중복 회원 검증
