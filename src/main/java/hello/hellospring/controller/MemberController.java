@@ -14,6 +14,8 @@ public class MemberController {
     // 생성자 호출할 때 필요한 memberService연결(wired)해줌
     // 컨트롤러와 서배스 연결
     // 생성자 매개변수 타입인 MemberService가 @Service로 등록되어야 Autowired 가능
+    // 생성자 주입(생성 시점에 this.memberService에 등록되고 this.memberService를 수정못하도록함.)
+
     @Autowired
     public MemberController(MemberService memberService) {
         this.memberService = memberService;

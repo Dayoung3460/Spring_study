@@ -8,7 +8,7 @@ import java.util.*;
 // Repository의 구현체(MemoryMemberRepository)에 @Repository 달아줘야함
 // 정향화된 구조임
 // 컨트롤러: 외부요청 받고, 서비스: 비지니스 로직 만들고, 리파지토리: 데이터 저장하고
-@Repository
+
 public class MemoryMemberRepository implements MemberRepository{
 
     private static Map<Long, Member> store = new HashMap<>();

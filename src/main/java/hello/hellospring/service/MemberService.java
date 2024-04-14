@@ -12,7 +12,7 @@ import java.util.List;
 import java.util.Optional;
 
 // @service: 스프링에 등록이 됨
-@Service
+
 public class MemberService {
     private final MemberRepository memberRepository;
 
