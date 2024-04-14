@@ -1,0 +1,21 @@
+package hello.hellospring.controller;
+
+import hello.hellospring.service.MemberService;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Controller;
+
+// controller라는 어노테이션이 있으면 MemberController를 객체로 만들어(MemberController 생성자 호출)
+// 스프링 컨테이너가 관리를 함
+@Controller
+public class MemberController {
+    private final MemberService memberService;
+
+    // Autowired: 스프링 컨테이너에 있던 memberService 와
+    // 생성자 호출할 때 필요한 memberService연결(wired)해줌
+    // 컨트롤러와 서배스 연결
+    // 생성자 매개변수 타입인 MemberService가 @Service로 등록되어야 Autowired 가능
+    @Autowired
+    public MemberController(MemberService memberService) {
+        this.memberService = memberService;
+    }
+}

@@ -4,14 +4,21 @@ package hello.hellospring.service;
 import hello.hellospring.domain.Member;
 import hello.hellospring.repository.MemberRepository;
 import hello.hellospring.repository.MemoryMemberRepository;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
 
 import javax.swing.text.html.Option;
 import java.util.List;
 import java.util.Optional;
 
+// @service: 스프링에 등록이 됨
+@Service
 public class MemberService {
     private final MemberRepository memberRepository;
 
+
+    // @Service네? AutoWired 시켜줄게ㅇㅇ(스프링 컨테이너에 memberRepository를 넣음)
+    @Autowired
     // constructor생성: 외부에서 new MemberService()해서 다른 인스턴스 만들 필요없이
     // 외부에서 memberRepository를 넣어주도록
     public MemberService(MemberRepository memberRepository) {
