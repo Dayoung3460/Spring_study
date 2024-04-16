@@ -18,7 +18,13 @@ repositories {
 dependencies {
 	implementation 'org.springframework.boot:spring-boot-starter-thymeleaf'
 	implementation 'org.springframework.boot:spring-boot-starter-web'
-	testImplementation 'org.springframework.boot:spring-boot-starter-test'
+	// 자바는 db랑 붙으려면 jdbc 드라이버가 꼭 있어야함
+	implementation 'org.springframework.boot:spring-boot-starter-jdbc'
+	// db랑 붙을 때 db가 제공하는 클라이언트가 필요함. h2 database client
+	runtimeOnly 'com.h2database:h2'
+	testImplementation ('org.springframework.boot:spring-boot-starter-test') {
+		exclude group: 'org:junit.vintage', module: 'junit-vintage-engine'
+	}
 }
 
 tasks.named('test') {

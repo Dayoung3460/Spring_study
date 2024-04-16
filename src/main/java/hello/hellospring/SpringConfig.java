@@ -1,10 +1,14 @@
 package hello.hellospring;
 
+import hello.hellospring.repository.JdbcMemberRepository;
 import hello.hellospring.repository.MemberRepository;
 import hello.hellospring.repository.MemoryMemberRepository;
 import hello.hellospring.service.MemberService;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
+
+import javax.sql.DataSource;
 
 // *** Bean: 스프링 컨테이너에 의해 관리되는 재사용 가능한 소프트웨어 컴포넌트.
 // = 스프링 컨테이너가 관리하는 인스턴스화된 자바 객체
@@ -15,6 +19,14 @@ import org.springframework.context.annotation.Configuration;
 public class SpringConfig {
     // memberService, memberRepository를 스프링 빈을 등록
     // 스프링 빈에 등록되어 있는 memberRepository을 MemberService에 넣어줌
+
+    private DataSource dataSource;
+
+    @Autowired
+    public SpringConfig(DataSource dataSource) {
+        this.dataSource = dataSource;
+    }
+
     @Bean
     public MemberService memberService() {
         return new MemberService(memberRepository());
@@ -22,6 +34,7 @@ public class SpringConfig {
 
     @Bean
     public MemberRepository memberRepository() {
-        return new MemoryMemberRepository();
+//        return new MemoryMemberRepository();
+        return new JdbcMemberRepository(dataSource);
     }
 }
