@@ -25,7 +25,7 @@ public class SpringConfig {
 //    public SpringConfig(DataSource dataSource) {
 //        this.dataSource = dataSource;
 //    }
-@Autowired
+    @Autowired
     public SpringConfig(MemberRepository memberRepository) {
         this.memberRepository = memberRepository;
     }
@@ -42,6 +42,12 @@ public class SpringConfig {
 //        return new JdbcTemplateMemberRepository(dataSource);
 //        return new JpaMemberRepository(em);
 //        return null;
+//    }
+
+    // timeTraceAop 클래스에 @Component 썼기 때문에 스크링 빈에 자동으로 등록되어 있음
+//    @Bean
+//    public TimeTraceAop timeTraceAop() {
+//        return new TimeTraceAop();
 //    }
 
 }
