@@ -29,7 +29,7 @@ class MemberServiceTest {
     void join() {
         //given
         Member member = new Member();
-        member.setName("spring");
+        member.setName("spring1");
 
         // when
         Long saveId = memberService.join(member);
@@ -44,10 +44,10 @@ class MemberServiceTest {
     public void exceptionDuplicatedMember() {
         // given
         Member member1 = new Member();
-        member1.setName("spring");
+        member1.setName("spring1");
 
         Member member2 = new Member();
-        member2.setName("spring");
+        member2.setName("spring1");
 
         // when
         memberService.join(member1);

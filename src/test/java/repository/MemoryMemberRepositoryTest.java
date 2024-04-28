@@ -21,7 +21,7 @@ class MemoryMemberRepositoryTest {
     @Test
     public void save() {
         Member member = new Member();
-        member.setName("spring");
+        member.setName("spring1");
 
         repository.save(member);
         // Optional로 감싸져 있기 때문에 get()으로 꺼내야함
